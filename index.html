@@ -6,13 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
+<button type="button" onclick="test()" >button</button>
+
 <body>
     <script>
         let options = {
-            body: 'testtest'
+            body: 'testtest',
+            icon: 'http://avatar-dev.17duu.com/uploads/avatar/000/00/00/40_avatar.jpg?imageView2/1/w/100/h/100/format/jpg/q/100&t=1527145021151'
         }
-        let myNotification = new Notification('test通知', options);
-        // myNotification.Notification()
+        Notification.requestPermission()
+        function test() {  
+            let myNotification = new Notification('test通知', options);
+        }
     </script>
 </body>
 </html>
