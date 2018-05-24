@@ -12,12 +12,31 @@
 <body>
     <script>
         let options = {
-            body: 'testtest',
-            icon: 'http://avatar-dev.17duu.com/uploads/avatar/000/00/00/40_avatar.jpg?imageView2/1/w/100/h/100/format/jpg/q/100&t=1527145021151'
+            body: 'testtest--' + (new Date() - 0),
+            icon: 'http://avatar-dev.17duu.com/uploads/avatar/000/00/00/40_avatar.jpg?imageView2/1/w/100/h/100/format/jpg/q/100',
+            tag: '<h1>',
+            renotify: true,
+            silent: true,
+            sound: './test.mp3',
+            noscreen: true,
+            sticky: true,
+            timestamp: new Date() - 0
         }
-        Notification.requestPermission()
+        Notification.requestPermission() // 第一次申请权限
         function test() {  
             let myNotification = new Notification('test通知', options);
+            myNotification.onclick = function () {  
+                console.log('点击了')
+            }
+            myNotification.onerror = function () {  
+                console.log('onerror错误')
+            }
+            myNotification.onclose = function () {  
+                console.log('onclose关闭')
+            }
+            myNotification.onshow = function () {  
+                console.log('onshow我显示了')
+            }
         }
     </script>
 </body>
